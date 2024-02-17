@@ -5,7 +5,7 @@ domain=$(cat /etc/xray/domain)
 #color
 grenbo="\e[92;1m"
 BG_BLU="\033[44;1m" # BG BIRU
-BlueCyan='\e[5;36m'
+Cy='\e[5;36m'
 Xark='\e[0m'
 GREN="\033[0;32m"
 #install
@@ -45,9 +45,10 @@ pip3 install -r kyt/requirements.txt
 
 clear
 echo ""
-figlet 'LT' | lolcat
+figlet 'FREETUNNEL' | lolcat
+echo -e ""
 echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
-echo -e "$u │ \e[1;97;101m                ADD BOT PANEL                 ${NC} ${u}│${NC}"
+echo -e "$u │                      ADD BOT PANEL            ${NC} ${u}│${NC}"
 echo -e "$u └────────────────────────────────────────────────┘${NC}"
 echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
 echo -e "$u │ ${g}Tutorial Creat Bot and ID Telegram                   ${NC}"
@@ -85,7 +86,7 @@ fi
 
 cat > /etc/systemd/system/xbot.service << END
 [Unit]
-Description=Simple Bot Tele By - @xdxl_store
+Description=Simple Bot Tele By - @freetunnel1
 After=network.target
 
 [Service]
