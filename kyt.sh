@@ -114,6 +114,7 @@ fi
 
 rm -fr /usr/bin/bot.zip
 rm -fr /usr/bin/xdbot.zip
+rm -rf kyt.sh
 clear
 neofetch
 echo -e "  ${y} Your Data BOT Info"
