@@ -116,7 +116,7 @@ rm -fr /usr/bin/bot.zip
 rm -fr /usr/bin/xdbot.zip
 rm -rf kyt.sh
 clear
-neofetch
+figlet 'FREETUNNEL' | lolcat
 echo -e "  ${y} Your Data BOT Info"
 echo -e "  ${u}┌───────────────────────────────────┐${NC}"
 echo -e "  ${u}│$r Status BOT ${y}=$NC $sts_bot "
