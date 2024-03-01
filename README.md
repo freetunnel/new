@@ -14,7 +14,7 @@
 </code></pre>
 
 ### PERINTAH UPDATE 
-<pre><code>wget https://raw.githubusercontent.com/freetunneling/new/main/update.sh && chmod +x update.sh && ./update.sh</code></pre>
+<pre><code>wget https://raw.githubusercontent.com/freetunnel/new/main/update.sh && chmod +x update.sh && ./update.sh</code></pre>
 
 ### FITUR TAMBAHAN
 - Tambah Swap 1GiB
