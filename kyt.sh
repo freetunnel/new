@@ -71,7 +71,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=/usr/bin
-ExecStart=/usr/bin/python3 -m kyt
+ExecStart=/usr/bin/python3 -m xbot
 Restart=always
 
 [Install]
