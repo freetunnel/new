@@ -35,7 +35,7 @@ rm -rf bot.zip
 clear
 wget -q -O xdbot.zip "${REPO}xbot.zip"
 unzip xdbot.zip
-pip3 install -r kyt/requirements.txt
+pip3 install -r xbot/requirements.txt
 
 clear
 echo ""
