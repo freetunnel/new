@@ -1,9 +1,10 @@
 #!/bin/bash
+NS=$( cat /etc/xray/dns )
+PUB=$( cat /etc/slowdns/server.pub )
+domain=$(cat /etc/xray/domain)
+#color
 grenbo="\e[92;1m"
-BG_BLU="\033[44;1m" # BG BIRU
-BlueCyan='\e[5;36m'
-Xark='\e[0m'
-GREN="\033[0;32m"
+NC='\e[0m'
 #install
 clear
 history -c 
@@ -11,16 +12,15 @@ rm -fr xbot.sh
 rm -fr /usr/bin/kyt
 rm -fr /usr/bin/xdbot.zip*
 #color
-BG_BLU="\033[44;1m" # BG BIRU
-BlueCyan='\e[5;36m'
-Xark='\e[0m'
-GREN="\033[0;32m"
+NC='\e[0m'
 u="\033[1;36m"
 y="\033[1;93m"
 g="\033[1;92m"
 r="\033[1;91m"
 
-REPO="https://raw.githubusercontent.com/freetunnel/new/main/bot/"
+REPO="https://raw.githubusercontent.com/freetunnel/new/main/Bot/"
+NS=$( cat /etc/xray/dns )
+PUB=$( cat /etc/slowdns/server.pub )
 domain=$(cat /etc/xray/domain)
 #install
 apt update && apt upgrade
@@ -35,21 +35,16 @@ rm -rf bot.zip
 clear
 wget -q -O xdbot.zip "${REPO}xbot.zip"
 unzip xdbot.zip
-pip3 install -r xbot/requirements.txt
+pip3 install -r kyt/requirements.txt
 
 clear
 echo ""
-figlet 'ARI' | lolcat
-echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
-echo -e "$u │                    ADD BOT PANEL                    ${u}│${NC}"
-echo -e "$u └────────────────────────────────────────────────┘${NC}"
-echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
-echo -e "$u │ ${g}Tutorial Creat Bot and ID Telegram                   ${NC}"
-echo -e "$u │ ${g}Creat Bot and Token Bot : @BotFather                 ${NC}"
-echo -e "$u │ ${g}Info Id Telegram : @MissRose_bot perintah /info      ${NC}"
-echo -e "$u └────────────────────────────────────────────────┘${NC}"
+figlet 'FREETUNNEL' | lolcat
+echo -e ""
 echo -e ""
 read -e -p "  [*] Input your Bot Token : " bottoken
+echo ""
+echo ""
 read -e -p "  [*] Input Your Id Telegram : " admin
 echo -e BOT_TOKEN='"'$bottoken'"' >> /usr/bin/kyt/var.txt
 echo -e ADMIN='"'$admin'"' >> /usr/bin/kyt/var.txt
@@ -57,6 +52,18 @@ echo -e DOMAIN='"'$domain'"' >> /usr/bin/kyt/var.txt
 echo -e PUB='"'$PUB'"' >> /usr/bin/kyt/var.txt
 echo -e HOST='"'$NS'"' >> /usr/bin/kyt/var.txt
 clear
+
+# BOT NOTIP
+if [[ ${c} != "0" ]]; then
+  echo "${d}" >/etc/bot/${bottoken}
+fi
+DATADB=$(cat /etc/bot/.bot.db | grep "^#bot#" | grep -w "${bottoken}" | awk '{print $2}')
+if [[ "${DATADB}" != '' ]]; then
+  sed -i "/\b${user}\b/d" /etc/bot/.bot.db
+fi
+echo "#bot# ${bottoken} ${admin}" >>/etc/bot/.bot.db
+
+
 
 if [ -e /etc/systemd/system/xbot.service ]; then
 echo ""
@@ -66,12 +73,12 @@ fi
 
 cat > /etc/systemd/system/xbot.service << END
 [Unit]
-Description=Simple Bot Tele By - FREE TUNNELING PROJECT
+Description=Simple Bot Tele By - @xdxl_store
 After=network.target
 
 [Service]
 WorkingDirectory=/usr/bin
-ExecStart=/usr/bin/python3 -m xbot
+ExecStart=/usr/bin/python3 -m kyt
 Restart=always
 
 [Install]
@@ -106,4 +113,4 @@ echo -e "  ${u}└────────────────────�
 echo -e ""
 history -c
 read -p "  Press [ Enter ] to back on menu"
-menu
+m-bot
